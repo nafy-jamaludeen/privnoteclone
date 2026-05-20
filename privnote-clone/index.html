@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>SecretLink — Private Messages</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- SENDER VIEW -->
+  <div id="app-sender" class="container">
+    <div class="card">
+      <div class="logo">🔐</div>
+      <h1>SecretLink</h1>
+      <p class="subtitle">Type a message. Get an encrypted link.<br>No server. No trace.</p>
+
+      <textarea
+        id="message-input"
+        placeholder="Type your secret message here..."
+        maxlength="5000"
+      ></textarea>
+      <div class="char-count"><span id="char-count">0</span> / 5000</div>
+
+      <button id="encrypt-btn" class="btn-primary">
+        🔒 Encrypt &amp; Copy Link
+      </button>
+
+      <div id="result-box" class="result-box hidden">
+        <p class="result-label">✅ Link copied! Share it on Instagram / WhatsApp:</p>
+        <div class="link-preview" id="link-preview"></div>
+        <button id="copy-again-btn" class="btn-secondary">Copy Again</button>
+      </div>
+    </div>
+
+    <p class="footer">
+      100% client-side · AES-256-GCM · No servers · 
+      <a href="https://github.com" target="_blank">Open Source</a>
+    </p>
+  </div>
+
+  <!-- RECEIVER VIEW -->
+  <div id="app-receiver" class="container hidden">
+    <div class="card">
+      <div class="logo">🔓</div>
+      <h1>SecretLink</h1>
+      <p class="subtitle">Someone sent you an encrypted message.</p>
+
+      <div id="decrypted-box" class="decrypted-box">
+        <div class="decrypting">Decrypting...</div>
+      </div>
+
+      <button id="send-own-btn" class="btn-secondary" style="margin-top:1.5rem">
+        🔐 Send your own secret
+      </button>
+    </div>
+
+    <p class="footer">
+      Message decrypted locally on your device · Never sent to any server
+    </p>
+  </div>
+
+  <script type="module" src="src/app.js"></script>
+</body>
+</html>
